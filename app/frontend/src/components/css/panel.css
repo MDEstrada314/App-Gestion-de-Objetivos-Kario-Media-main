@@ -1,0 +1,159 @@
+/* Estilos generales */
+
+a {
+  text-decoration: none;
+}
+
+.table {
+  overflow: auto;
+  max-height: 620px;
+  width: 95%;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+.row-container {
+  position: relative;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid black;
+  border-radius: 20px;
+  margin: 10px 0;
+  padding: 5px;
+}
+
+.row-header {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+
+.cell {
+  flex: 1;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.indice div {
+  font-weight: 500;
+}
+
+.menu-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.hover:hover {
+  background-color: rgb(255, 146, 21);
+  border-radius: 25px;
+}
+
+.hover:hover div {
+  background-color: rgb(255, 146, 21);
+  border-radius: 25px;
+}
+
+.tex-descrip {
+  width: 20px;
+}
+
+.descripcion {
+  font-weight: 400;
+  font-size: 18px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.background-container {
+  background-size: 50px 50px;
+  background-repeat: no-repeat;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+  font-weight: 300;
+  font-size: 15px;
+  padding: 0;
+  margin: 0;
+}
+
+/* Utiliza una clase adicional */
+.background-container.my-graph {
+  filter: hue-rotate(240deg);
+}
+
+
+
+.no-ver{
+  display: none;
+}
+
+.hover-eliminar div {
+  background-color: rgb(255, 121, 121);
+  border-radius: 25px;
+}
+
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+  .row {
+    flex-direction: column;
+  }
+  .cell {
+    flex: 1;
+  }
+}
+
+.btn-container{
+  text-align: center;
+  margin-top: 20px;
+  height: 56px;
+}
+
+#crear-metas{
+  text-align: center;
+  color: white;
+  font-size: 18px;
+  background-color: #FF6F2C;
+  border-style: none;
+  border-radius: 35px;
+  width: 280px;
+  height: 100%;
+}
+
+#cancelar-borrar{
+  text-align: center;
+  color: white;
+  font-size: 18px;
+  background-color: #4CAEA8;
+  border-style: none;
+  border-radius: 35px;
+  width: 280px;
+  height: 100%;
+}
+
+@media (max-width: 1570px) and (max-height: 720px) {
+  #text-home{
+    font-size: 2rem;
+  }
+
+  #text-info{
+    font-size: 1rem;
+  }
+
+  .table {
+    overflow: auto;
+    max-height: 340px;
+  }
+  
+  .btn-container{
+    margin-top: 10px;
+  }
+}

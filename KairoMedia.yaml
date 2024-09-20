@@ -1,0 +1,833 @@
+openapi: 3.0.3
+info:
+  title: Kairo Media PM
+  description: Proyecto de desarrollo de un Aplicativo Web que pueda mostrar el panel de gestionamiento de proyectos y sus módulos necesarios para la empresa “Kario Media”, la cual realiza licitaciones públicas y privadas de varios nichos de negocio.
+  version: 1.0.0
+servers:
+  - url: http://localhost:8000/
+tags:
+  - name: Area
+  - name: Meta
+  - name: Tareas
+  - name: Rol
+  - name: Usuario
+  - name: Images
+  - name: Autenticacion
+
+paths:
+  #Area
+  /api/v1/areas:
+    get:
+      tags:
+        - Area
+      summary: Muestra las areas Registradas
+      parameters:
+        - $ref: '#/components/parameters/jwtUser'
+      responses:
+        200:
+          description: (OK) lista de Areas obtenida con exito
+        400:
+          $ref: "#/components/responses/BadRequest"
+        404:
+          $ref: "#/components/responses/NotFound"
+        500:
+          $ref: "#/components/responses/ServerError"
+
+    post:
+      tags:
+        - Area
+      summary: Inserta la informacion de una nueva area a trabajar..
+      parameters:
+        - $ref: '#/components/parameters/jwtAdmin'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AreaPost"
+      responses:
+        200:
+          description: (OK) la informacion se guardo correctamente
+        400:
+          $ref: "#/components/responses/BadRequest"
+        404:
+          $ref: "#/components/responses/NotFound"
+        500:
+          $ref: "#/components/responses/ServerError"
+
+  /api/v1/areas/{idArea}:
+    get:
+      tags:
+        - Area
+      summary: Obtiene un único registro de area
+      description: Obtiene la informacion unica de cada una de las colecciones encontradas en la base de datos
+      parameters:
+        - name: idArea
+          in: path
+          description: Se obtiene la informacion de una Area solicitada
+          required: true
+          schema:
+            type: string
+            format: objectId
+            pattern: '^[0-9a-fA-F]+$'
+            minLength: 24
+            maxLength: 24
+            example: 605c4d36a2cfde067c6c266d
+        - $ref: '#/components/parameters/jwtUser'
+      responses:
+        200:
+          description: (OK) la informacion se guardo correctamente
+        400:
+          $ref: "#/components/responses/BadRequest"
+        404:
+          $ref: "#/components/responses/NotFound"
+        500:
+          $ref: "#/components/responses/ServerError"
+
+    patch:
+      tags:
+        - Area
+      summary: Busca en la base de datos la coincidencia
+      parameters:
+        - name: idArea
+          in: path
+          description: Actualiza la informacion de la respectiva Area
+          required: true
+          schema:
+            type: string
+            format: objectId
+            pattern: '^[0-9a-fA-F]+$'
+            minLength: 24
+            maxLength: 24
+            example: 605c4d36a2cfde067c6c266d
+        - $ref: '#/components/parameters/jwtAdmin'
+      requestBody:
+        description: Añade los datos de los siguientes campos a modificar
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AreaPost"
+      responses:
+        200:
+          description: (OK) la informacion se guardo correctamente
+        400:
+          $ref: "#/components/responses/BadRequest"
+        404:
+          $ref: "#/components/responses/NotFound"
+        500:
+          $ref: "#/components/responses/ServerError"
+
+    delete:
+      tags:
+        - Area
+      summary: Busca en la base de datos la coincidencia
+      parameters:
+        - name: idArea
+          in: path
+          description: Se elimina el Area de la base de datos.
+          required: true
+          schema:
+            type: string
+            format: objectId
+            pattern: '^[0-9a-fA-F]+$'
+            minLength: 24
+            maxLength: 24
+            example: 605c4d36a2cfde067c6c266d
+        - $ref: '#/components/parameters/jwtAdmin'
+
+      responses:
+        200:
+          description: (OK) El cliente fue borrado exitosamente
+        400:
+          $ref: "#/components/responses/BadRequest"
+        404:
+          $ref: "#/components/responses/NotFound"
+        500:
+          $ref: "#/components/responses/ServerError"
+
+  #Metas
+  /api/v1/metas:
+    get:
+      tags:
+        - Meta
+      summary: Muestra las Metas Registradas
+      parameters:
+        - $ref: '#/components/parameters/jwtUser'
+      responses:
+        200:
+          description: (OK) lista de Metas obtenida con exito
+        400:
+          $ref: "#/components/responses/BadRequest"
+        404:
+          $ref: "#/components/responses/NotFound"
+        500:
+          $ref: "#/components/responses/ServerError"
+
+    post:
+      tags:
+        - Meta
+      summary: Inserta la informacion de una nueva Meta a trabajar..
+      parameters:
+        - $ref: '#/components/parameters/jwtAdmin'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/MetaPost"
+      responses:
+        200:
+          description: (OK) la informacion se guardo correctamente
+        400:
+          $ref: "#/components/responses/BadRequest"
+        404:
+          $ref: "#/components/responses/NotFound"
+        500:
+          $ref: "#/components/responses/ServerError"
+
+  /api/v1/metas/{idMeta}:
+    get:
+      tags:
+        - Meta
+      summary: Obtiene único registro de meta
+      description: Obtiene la informacion unica de cada una de las colecciones encontradas en la base de datos
+      parameters:
+        - name: idMeta
+          in: path
+          description: Se obtiene la informacion de una Meta solicitada
+          required: true
+          schema:
+            type: string
+            format: objectId
+            pattern: '^[0-9a-fA-F]+$'
+            minLength: 24
+            maxLength: 24
+            example: 605c4d36a2cfde067c6c266d
+        - $ref: '#/components/parameters/jwtUser'
+      responses:
+        200:
+          description: (OK) la informacion se guardo correctamente
+        400:
+          $ref: "#/components/responses/BadRequest"
+        404:
+          $ref: "#/components/responses/NotFound"
+        500:
+          $ref: "#/components/responses/ServerError"
+
+    patch:
+      tags:
+        - Meta
+      summary: Busca en la base de datos la coincidencia
+      parameters:
+        - name: idMeta
+          in: path
+          description: Actualiza la informacion de la respectiva Meta
+          required: true
+          schema:
+            type: string
+            format: objectId
+            pattern: '^[0-9a-fA-F]+$'
+            minLength: 24
+            maxLength: 24
+            example: 605c4d36a2cfde067c6c266d
+        - $ref: '#/components/parameters/jwtAdmin'
+
+      requestBody:
+        description: Añade los datos de los siguientes campos a modificar
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/MetaPost"
+      responses:
+        200:
+          description: (OK) la informacion se guardo correctamente
+        400:
+          $ref: "#/components/responses/BadRequest"
+        404:
+          $ref: "#/components/responses/NotFound"
+        500:
+          $ref: "#/components/responses/ServerError"
+
+    delete:
+      tags:
+        - Meta
+      summary: Busca en la base de datos la coincidencia
+      parameters:
+        - name: idMeta
+          in: path
+          description: Se elimina el Meta de la base de datos.
+          required: true
+          schema:
+            type: string
+            format: objectId
+            pattern: '^[0-9a-fA-F]+$'
+            minLength: 24
+            maxLength: 24
+            example: 605c4d36a2cfde067c6c266d
+        - $ref: '#/components/parameters/jwtAdmin'
+
+      responses:
+        200:
+          description: (OK) El cliente fue borrado exitosamente
+        400:
+          $ref: "#/components/responses/BadRequest"
+        404:
+          $ref: "#/components/responses/NotFound"
+        500:
+          $ref: "#/components/responses/ServerError"
+
+  #Tareas
+  /api/v1/metas/porcentaje/{idMeta}:
+    get:
+      tags:
+        - Tareas
+      summary: Obtiene cantidad de tareas
+      description: Obtiene la cantidad de tareas finalizadas y incompletas la meta especifica.
+      parameters:
+        - name: idMeta
+          in: path
+          description: Se obtiene la informacion de una Meta solicitada.
+          required: true
+          schema:
+            type: string
+            format: objectId
+            pattern: '^[0-9a-fA-F]+$'
+            minLength: 24
+            maxLength: 24
+            example: 605c4d36a2cfde067c6c266d
+        - $ref: '#/components/parameters/jwtUser'
+      responses:
+        200:
+          description: (OK) la informacion se guardo correctamente
+        400:
+          $ref: "#/components/responses/BadRequest"
+        404:
+          $ref: "#/components/responses/NotFound"
+        500:
+          $ref: "#/components/responses/ServerError"
+
+  /api/v1/metas/add-tasks/{idMeta}:
+    post:
+      tags:
+        - Tareas
+      parameters:
+        - name: idMeta
+          in: path
+          description: Se necesita el objectId de la meta especifica para añadir tareas.
+          required: true
+          schema:
+            type: string
+            format: objectId
+            pattern: '^[0-9a-fA-F]+$'
+            minLength: 24
+            maxLength: 24
+            example: 605c4d36a2cfde067c6c266d
+        - $ref: '#/components/parameters/jwtUser'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/TareasPost"
+      responses:
+        200:
+          description: (OK) la informacion se guardo correctamente
+        400:
+          $ref: "#/components/responses/BadRequest"
+        404:
+          $ref: "#/components/responses/NotFound"
+        500:
+          $ref: "#/components/responses/ServerError"
+
+  #Roles
+  /api/v1/roles:
+    get:
+      tags:
+        - Rol
+      summary: Muestra las Rols Registradas
+      parameters:
+        - $ref: '#/components/parameters/jwtUser'
+      responses:
+        200:
+          description: (OK) lista de Rols obtenida con exito
+        400:
+          $ref: "#/components/responses/BadRequest"
+        404:
+          $ref: "#/components/responses/NotFound"
+        500:
+          $ref: "#/components/responses/ServerError"
+
+    post:
+      tags:
+        - Rol
+      summary: Inserta la informacion de una nueva Rol a trabajar..
+      parameters:
+        - $ref: '#/components/parameters/jwtAdmin'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RolPost"
+      responses:
+        200:
+          description: (OK) la informacion se guardo correctamente
+        400:
+          $ref: "#/components/responses/BadRequest"
+        404:
+          $ref: "#/components/responses/NotFound"
+        500:
+          $ref: "#/components/responses/ServerError"
+
+  /api/v1/roles/{idRol}:
+    get:
+      tags:
+        - Rol
+      summary: Obtiene único registro de rol
+      description: Obtiene la informacion unica de cada una de las colecciones encontradas en la base de datos
+      parameters:
+        - name: idRol
+          in: path
+          description: Se obtiene la informacion de una Rol solicitada
+          required: true
+          schema:
+            type: string
+            format: objectId
+            pattern: '^[0-9a-fA-F]+$'
+            minLength: 24
+            maxLength: 24
+            example: 605c4d36a2cfde067c6c266d
+        - $ref: '#/components/parameters/jwtUser'
+      responses:
+        200:
+          description: (OK) la informacion se guardo correctamente
+        400:
+          $ref: "#/components/responses/BadRequest"
+        404:
+          $ref: "#/components/responses/NotFound"
+        500:
+          $ref: "#/components/responses/ServerError"
+
+    patch:
+      tags:
+        - Rol
+      summary: Busca en la base de datos la coincidencia
+      parameters:
+        - name: idRol
+          in: path
+          description: Actualiza la informacion de la respectiva Rol
+          required: true
+          schema:
+            type: string
+            format: objectId
+            pattern: '^[0-9a-fA-F]+$'
+            minLength: 24
+            maxLength: 24
+            example: 605c4d36a2cfde067c6c266d
+        - $ref: '#/components/parameters/jwtAdmin'
+      requestBody:
+        description: Añade los datos de los siguientes campos a modificar
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RolPost"
+      responses:
+        200:
+          description: (OK) la informacion se guardo correctamente
+        400:
+          $ref: "#/components/responses/BadRequest"
+        404:
+          $ref: "#/components/responses/NotFound"
+        500:
+          $ref: "#/components/responses/ServerError"
+
+    delete:
+      tags:
+        - Rol
+      summary: Busca en la base de datos la coincidencia
+      parameters:
+        - name: idRol
+          in: path
+          description: Se elimina el Rol de la base de datos.
+          required: true
+          schema:
+            type: string
+            format: objectId
+            pattern: '^[0-9a-fA-F]+$'
+            minLength: 24
+            maxLength: 24
+            example: 605c4d36a2cfde067c6c266d
+        - $ref: '#/components/parameters/jwtAdmin'
+      responses:
+        200:
+          description: (OK) El cliente fue borrado exitosamente
+        400:
+          $ref: "#/components/responses/BadRequest"
+        404:
+          $ref: "#/components/responses/NotFound"
+        500:
+          $ref: "#/components/responses/ServerError"
+
+  #Usuarios
+  /api/v1/usuarios:
+    get:
+      tags:
+        - Usuario
+      summary: Muestra las Usuarios Registradas
+      parameters:
+        - $ref: '#/components/parameters/jwtUser'
+      responses:
+        200:
+          description: (OK) lista de Usuarios obtenida con exito
+        400:
+          $ref: "#/components/responses/BadRequest"
+        404:
+          $ref: "#/components/responses/NotFound"
+        500:
+          $ref: "#/components/responses/ServerError"
+
+    post:
+      tags:
+        - Usuario
+      summary: Crear nuevo usuario
+      description: Inserta la informacion de una nueva Usuario a trabajar...
+      parameters:
+        - $ref: '#/components/parameters/jwtAdmin'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UsuarioPost"
+      responses:
+        200:
+          description: (OK) la informacion se guardo correctamente
+        400:
+          $ref: "#/components/responses/BadRequest"
+        404:
+          $ref: "#/components/responses/NotFound"
+        500:
+          $ref: "#/components/responses/ServerError"
+
+  /api/v1/usuarios/{idUsuario}:
+    get:
+      tags:
+        - Usuario
+      summary: Busca un único usuario
+      description: Obtiene la información unica de cada una de las colecciones encontradas en la base de datos.
+      parameters:
+        - name: idUsuario
+          in: path
+          description: Se obtiene la informacion de una Usuario solicitada
+          required: true
+          schema:
+            type: string
+            format: objectId
+            pattern: '^[0-9a-fA-F]+$'
+            minLength: 24
+            maxLength: 24
+            example: 605c4d36a2cfde067c6c266d
+        - $ref: '#/components/parameters/jwtUser'
+      responses:
+        200:
+          description: (OK) la informacion se guardo correctamente
+        400:
+          $ref: "#/components/responses/BadRequest"
+        404:
+          $ref: "#/components/responses/NotFound"
+        500:
+          $ref: "#/components/responses/ServerError"
+
+    patch:
+      tags:
+        - Usuario
+      summary: Busca en la base de datos la coincidencia
+      description: Aca se encuentran las 2 peticiones para el llenado del usuario, puedes elejir entre application/json para llenar los diferentes campos y usar multipart/form-data para ingresar la imagen del Usuario
+      parameters:
+        - name: idUsuario
+          in: path
+          description: Actualiza la informacion de la respectiva Usuario
+          required: true
+          schema:
+            type: string
+            format: objectId
+            pattern: '^[0-9a-fA-F]+$'
+            minLength: 24
+            maxLength: 24
+            example: 605c4d36a2cfde067c6c266d
+        - $ref: '#/components/parameters/jwtUser'
+      requestBody:
+        description: Añade los datos de los siguientes campos a modificar
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UsuarioPost"
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                image:
+                  type: string
+                  format: base64
+                  example: "data:image/png;base64,{IMAGEN EN BASE64}"
+      responses:
+        200:
+          description: (OK) la informacion se guardo correctamente
+        400:
+          $ref: "#/components/responses/BadRequest"
+        404:
+          $ref: "#/components/responses/NotFound"
+        500:
+          $ref: "#/components/responses/ServerError"
+
+    delete:
+      tags:
+        - Usuario
+      summary: Busca en la base de datos la coincidencia
+      parameters:
+        - name: idUsuario
+          in: path
+          description: Se elimina el Usuario de la base de datos.
+          required: true
+          schema:
+            type: string
+            format: objectId
+            pattern: '^[0-9a-fA-F]+$'
+            minLength: 24
+            maxLength: 24
+            example: 605c4d36a2cfde067c6c266d
+        - $ref: '#/components/parameters/jwtAdmin'
+      responses:
+        200:
+          description: (OK) El cliente fue borrado exitosamente
+        400:
+          $ref: "#/components/responses/BadRequest"
+        404:
+          $ref: "#/components/responses/NotFound"
+        500:
+          $ref: "#/components/responses/ServerError"
+  /api/v1/usuarios/updatePhoto/{idUsuario}:
+    patch:
+      tags:
+        - Images
+      summary: Busca en la base de datos la coincidencia
+      parameters:
+        - name: idUsuario
+          in: path
+          description: Actualiza la informacion de la imagen del respectivo usuario
+          required: true
+          schema:
+            type: string
+            format: objectId
+            pattern: '^[0-9a-fA-F]+$'
+            minLength: 24
+            maxLength: 24
+            example: 605c4d36a2cfde067c6c266d
+        - $ref: '#/components/parameters/jwtUser'
+      requestBody:
+        description: Añade los datos de los siguientes campos a modificar
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                image:
+                  type: string
+                  format: base64
+                  example: "data:image/png;base64,{IMAGEN EN BASE64}"
+      responses:
+        200:
+          description: (OK) la informacion se guardo correctamente
+        400:
+          $ref: "#/components/responses/BadRequest"
+        404:
+          $ref: "#/components/responses/NotFound"
+        500:
+          $ref: "#/components/responses/ServerError"
+
+  #Autenticacion
+  /api/v1/auth:
+    post:
+      tags: 
+        - Autenticacion
+      summary: Autenticación con credenciales
+      description: Busca en la base de datos, los datos de correo y constraseña del usuario y procede a hacer la validación.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AuthPost"
+      responses:
+        200:
+          description: (OK) El cliente fue borrado exitosamente
+        400:
+          $ref: "#/components/responses/BadRequest"
+        404:
+          $ref: "#/components/responses/NotFound"
+        500:
+          $ref: "#/components/responses/ServerError"
+
+components:
+  parameters:
+    jwtAdmin:
+      in: header
+      name: x-auth-token
+      required: true
+      description: JWT obtenido en la autenticación. El usuario debe tener rol ADMIN.
+      schema:
+        type: string
+
+    jwtUser:
+      in: header
+      name: x-auth-token
+      required: true
+      description: JWT obtenido en la autenticación. No importa el rol del usuario.
+      schema:
+        type: string
+
+  responses:
+    NotFound:
+      description: (NotFound) no se encontro la informacion
+    BadRequest:
+      description: (BadRequest) Los datos enviados son incorrectos o hay datos obligatorios no enviados
+    ServerError:
+      description: Error en el servidor
+
+  schemas:
+    AreaPost:
+      type: object
+      properties:
+        nombre:
+          type: string
+          example: Marketing
+        estado:
+          type: string
+          format: boolean
+          default: true
+
+    MetaPost:
+      type: object
+      properties:
+        nombre:
+          type: string
+          uniqueItems: true
+          example: Marketing
+        descripcion:
+          type: string
+        dificultad:
+          type: string
+          enum:
+            - Alta #Dificultad Seniooor
+            - Media #Dificultad Intermedia
+            - Baja #Dificultad muy facil, para siempre decir "Esto esta todo mal hecho ¡Monton de Juniors 💦!"
+          example: Alta
+        fechaInicio: 
+          type: string
+          format: date
+          example: 1990-01-01
+        fechaFinal:
+          type: string
+          format: date
+          example: 1990-01-01
+        metodologia:
+          type: string
+        area: 
+          type: string
+          format: objectId
+          pattern: '^[0-9a-fA-F]+$'
+          maxLength: 24
+          minLength: 24
+          example: 05c4d36a2cfde067c6c266d
+        tareas:
+          type: array
+        cumplimiento:
+          type: number
+          default: 0
+    
+    TareasPost: 
+      type: object
+      properties:
+        titulo: 
+          type: string
+        instrucciones:
+          type: string
+        tiempoHoras: 
+          type: number
+          minimum: 1
+        integrantes:
+          type: object
+          properties:
+            usuario:
+              type: string
+              format: objectId
+              pattern: '^[0-9a-fA-F]+$'
+              maxLength: 24
+              minLength: 24
+              example: 05c4d36a2cfde067c6c266d
+
+    RolPost:
+      type: object
+      properties:
+        nombre:
+          type: string
+          uniqueItems: true
+          pattern: '^[A-Z]+$'
+          example: 'ADMIN'
+        estado:
+          type: string
+          format: boolean
+          default: true
+
+    UsuarioPost:
+      type: object
+      properties:
+        nombre:
+          type: string
+          uniqueItems: true
+        password:
+          type: string
+          format: password
+          minLength: 8
+          maxLength: 20
+          pattern: '^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@#$%^&+=!]).*$'
+          example: Password123!
+        email:
+          type: string
+          format: email
+          pattern: '^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$'
+          example: allhired@example.com
+        estado:
+          type: string
+          format: boolean
+          default: true
+        rol: 
+          type: array
+          properties:
+            rol:
+              type: string
+              format: uppercase
+              example: USER
+        notificacion:
+          type: array
+          properties: 
+            mensaje:
+              type: string
+            estado:
+              type: string
+              format: boolean
+    
+    AuthPost:
+      type: object
+      properties:
+        email: 
+          type: string
+          format: email
+          pattern: '^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$'
+          example: allhired@example.com
+        contraseña:
+          type: string
+          format: password
+          minLength: 8
+          maxLength: 20
+          pattern: '^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@#$%^&+=!]).*$'
+          example: Password123!

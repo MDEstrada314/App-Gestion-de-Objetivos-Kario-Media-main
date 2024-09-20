@@ -1,0 +1,35 @@
+.logout-box {
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    width: 200px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    text-align: center;
+    padding: 10px;
+  }
+  
+  .logout-button {
+    font-weight: bold;
+    border: none;
+    background-color: rgb(255, 74, 74);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .logout-button i {
+    padding-right: 5px;
+  }
+  
+  .close-button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+  }
+  

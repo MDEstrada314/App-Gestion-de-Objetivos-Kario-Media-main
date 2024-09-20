@@ -1,0 +1,123 @@
+.form-create-container{
+    margin: 25px auto;
+    width: 90%;
+}
+
+.seccion-registrar{
+    display: flex;
+}
+
+.seccion-derecha{
+    width: 50%;
+    border-right: solid black 1.5px;
+}
+
+.seccion-izquierda{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    padding: 0 50px;
+}
+
+.divisor-input{
+    display: flex;
+    justify-content: space-between;
+}
+
+.input-form-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.input-form-container label{
+    font-size: 1.2rem;
+}
+
+.input-form-container.derecha{
+    width: 90%;
+    margin-top: 20px;
+}
+
+.input-form-container{
+    margin-top: 20px;
+}
+
+.input-form-container input{
+    border-radius: 5px;
+    border-style: none;
+    height: 38px;
+    padding: 0 8px;
+    background-color: #E8E5E5;
+}
+
+.input-form-container select{
+    height: 35px;
+    padding: 0 8px;
+}
+
+.input-form-container textarea{
+    border-radius: 5px;
+    border-style: none;
+    padding: 5px 8px;
+    background-color: #E8E5E5;
+}
+
+.input-form-container.izquierda{
+    width: 40%;
+}
+
+.btn-submit-container{
+    width: 100%;
+    height: 50px;
+}
+
+.btn-submit-container button{
+    width: 45%;
+    font-size: 18px;
+    border-style: none;
+    color: white;
+    border-radius: 5px;
+    height: 100%;
+    background-color: #FF6F2C;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.btn-submit-container #cancelar{
+    width: 44%;
+    margin-left: 8%;
+    background-color: #4CAEA8;
+}
+
+@media (max-width: 1570px) {
+    .form-create-container{
+        margin: 25px auto;
+        width: 85%;
+    }
+
+    .create-title-container h1{
+        font-size: 1.8rem;
+    }
+
+    .input-form-container input, select{
+        border-radius: 5px;
+        height: 32px;
+        padding: 0 8px;
+    }
+
+    .input-form-container{
+        margin-top: 10px;
+    }
+
+    .input-form-container.derecha{
+        margin-top: 10px;
+    }
+
+    .btn-submit-container{
+        height: 40px;
+    }
+
+    .btn-submit-container button{
+        margin-top: 28px;
+    }
+}

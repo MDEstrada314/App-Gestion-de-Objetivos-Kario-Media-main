@@ -1,0 +1,330 @@
+{
+	"info": {
+		"_postman_id": "80e38879-4fe1-4ff1-bac9-01fe9d0b27d2",
+		"name": "Kario Media",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "28938941",
+		"_collection_link": "https://universal-meteor-4399.postman.co/workspace/Team-Workspace~f02d4b8a-7bba-4e68-8824-c592531ed373/collection/28938941-80e38879-4fe1-4ff1-bac9-01fe9d0b27d2?action=share&source=collection_link&creator=28938941"
+	},
+	"item": [
+		{
+			"name": "usuarios",
+			"item": [
+				{
+					"name": "obtener",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8000/api/v1/usuarios"
+					},
+					"response": []
+				},
+				{
+					"name": "eliminar",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:8000/api/v1/usuarios/6523ebaeb4cea48bcea4ad20"
+					},
+					"response": []
+				},
+				{
+					"name": "crear",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Rafael Nieto\",\r\n    \"email\": \"rafanieto@example.net\",\r\n    \"password\":\"123456\",\r\n    \"rol\": [\"MANAGER\", \"PRODUCTOR\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8000/api/v1/usuarios"
+					},
+					"response": []
+				},
+				{
+					"name": "imagen",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1MjNlOTdmNDQ5MDQxOGUyNTQ5YTE4OSIsImlhdCI6MTY5Njk5OTc2MiwiZXhwIjoxNjk3MDQyOTYyfQ.CdlTZ62bASwcXpF1FHRzjogFlpq-zvmC5vop_FXq2As",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "imageData",
+									"type": "file",
+									"src": "/C:/Users/herna/Downloads/_105482203__105172250_gettyimages-857294664.jpg"
+								}
+							]
+						},
+						"url": "http://localhost:8000/api/v1/usuarios/photo/652629ffcaa1a23846afc229"
+					},
+					"response": []
+				},
+				{
+					"name": "actualizar",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Francesco Virgolinii\",\r\n    \"password\": \"hola123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8000/api/v1/usuarios/6523ebaeb4cea48bcea4ad20"
+					},
+					"response": []
+				},
+				{
+					"name": "actualizar_imagen",
+					"request": {
+						"method": "PATCH",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "roles",
+			"item": [
+				{
+					"name": "obtener",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8000/api/v1/roles"
+					},
+					"response": []
+				},
+				{
+					"name": "eliminar",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:8000/api/v1/roles/65248e831fce6d58310bbda1"
+					},
+					"response": []
+				},
+				{
+					"name": "crear",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"EDITOR\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8000/api/v1/roles"
+					},
+					"response": []
+				},
+				{
+					"name": "actualizar",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"MEDIA PRODUCER\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8000/api/v1/roles/65248e7a1fce6d58310bbd9f"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "areas",
+			"item": [
+				{
+					"name": "obtener",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8000/api/v1/areas"
+					},
+					"response": []
+				},
+				{
+					"name": "eliminar",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:8000/api/v1/roles/65248e831fce6d58310bbda1"
+					},
+					"response": []
+				},
+				{
+					"name": "crear",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Modelado 3D\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8000/api/v1/areas"
+					},
+					"response": []
+				},
+				{
+					"name": "actualizar",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Marketing\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8000/api/v1/areas/65248f6ce88a8548cf8b9890"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "metas",
+			"item": [
+				{
+					"name": "obtener",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1MjNlOTdmNDQ5MDQxOGUyNTQ5YTE4OSIsImlhdCI6MTY5NjkzODM5MCwiZXhwIjoxNjk2OTgxNTkwfQ.MyJK0f670S-bc1Xj0IQSefcOEDCxJIz7JUxHJfArDpM",
+								"type": "text"
+							}
+						],
+						"url": "http://localhost:8000/api/v1/metas"
+					},
+					"response": []
+				},
+				{
+					"name": "eliminar",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:8000/api/v1/usuarios/6523ebaeb4cea48bcea4ad20"
+					},
+					"response": []
+				},
+				{
+					"name": "crear",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\": \"Proyecto A\",\r\n  \"descripcion\": \"Descripción del Proyecto A\",\r\n  \"dificultad\": \"Media\",\r\n  \"fechaInicio\": \"2023-10-09\",\r\n  \"fechaFinal\": \"2023-12-31\",\r\n  \"metodologia\": \"Ágil\",\r\n  \"area\": \"652422bfb6cc6243a555a759\",\r\n  \"cumplimiento\": 15\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8000/api/v1/metas"
+					},
+					"response": []
+				},
+				{
+					"name": "añadir tareas",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"tareas\": [{\r\n        \"titulo\": \"Un título\",\r\n        \"instrucciones\": \"Una descripcion\",\r\n        \"tiempoHoras\": 22,\r\n        \"integrantes\": [\r\n            \"6523e96a4490418e2549a187\",\r\n            \"6523e97f4490418e2549a189\"\r\n        ],\r\n        \"check\" : false\r\n    },\r\n    {\r\n         \"titulo\": \"Un título\",\r\n        \"instrucciones\": \"Una descripcion\",\r\n        \"tiempoHoras\": 8,\r\n        \"integrantes\": [\r\n            \"6523e97f4490418e2549a189\",\r\n            \"65241dd9dc65ac23f23875cf\"\r\n        ],\r\n        \"check\": true\r\n    },\r\n    {\r\n         \"titulo\": \"Un título\",\r\n        \"instrucciones\": \"Una descripcion\",\r\n        \"tiempoHoras\": 9,\r\n        \"integrantes\": [\r\n            \"6523e97f4490418e2549a189\",\r\n            \"65241dd9dc65ac23f23875cf\"\r\n        ],\r\n        \"check\": true\r\n    }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8000/api/v1/metas/add-tasks/65243c9385f748f2184d0066"
+					},
+					"response": []
+				},
+				{
+					"name": "actualizar",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"integrantes\": [\r\n        \"6523e96a4490418e2549a187\",\r\n        \"6523e9914490418e2549a18b\",\r\n        \"65241dd9dc65ac23f23875cf\"\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8000/api/v1/metas/65242528382e0c9a3911f9be"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "authentication",
+			"item": [
+				{
+					"name": "auth",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"alanbrito@example.net\",\r\n    \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8000/api/v1/auth"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

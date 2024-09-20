@@ -1,0 +1,92 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+}
+
+.container #img-animated {
+    width: 197px;
+    height: 176px;
+    opacity: 0;
+    animation: animate-logo 2s linear forwards 2s;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    user-select: none;
+  }
+
+.saludo-loged{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    background-color: white;
+    width: 68%;
+    height: 51%;
+    border-radius: 67px;
+    animation: welcome-animation 1s linear, fade-out .2s linear 2s forwards;
+    pointer-events: none;
+    user-select: none;
+    overflow: hidden;
+}
+
+.user-loged{
+  width: 118px;
+  height: 118px;
+  border-radius: 96px;
+  object-fit: cover;
+  overflow: hidden;
+}
+
+.user-image {
+  object-fit: cover;
+  width: 118px;
+  height: 118px;
+}
+
+.bienvenida-loged{
+  margin: 25px 0 10px 0;
+}
+
+.bienvenida-loged h1{
+  font-size: 2rem;
+}
+
+.username-loged{
+  margin: 10px 0 20px 0;
+}
+
+.username-loged h1{
+  font-size: 2vw 2vh;
+}
+
+@keyframes welcome-animation {
+    0%{
+        opacity: 0;
+    }
+
+    100%{
+        opacity: 1;
+    }
+}
+
+@keyframes fade-out {
+    0% {
+      opacity: 1;
+    }
+  
+    100% {
+      opacity: 0;
+    }
+  }
+
+  @media (max-width: 1570px){
+    .saludo-loged{
+      height: 440px;
+      width: 720px;
+    }
+  }

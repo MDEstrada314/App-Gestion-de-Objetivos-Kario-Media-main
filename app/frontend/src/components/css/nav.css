@@ -1,0 +1,38 @@
+.logo-nav {
+  width: 40px;
+  height: 40px;
+}
+
+.nav-logo {
+  width: 30px;
+  height: 30px;
+}
+
+.grup-a {
+  margin: 0 2em;
+}
+
+.ajustes-nav {
+  width: 20px;
+  height: 20px;
+}
+
+.imagen-nav {
+  object-fit: cover;
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+}
+.bg-body-tertiary {
+  background-color: transparent !important;
+}
+
+hr {
+  margin: 0;
+}
+
+@media (min-width: 1800px) {
+  .grup-a {
+    margin: 0 4em;
+  }
+}
