@@ -7,8 +7,8 @@
 }
 
 .container #img-animated {
-    width: 197px;
-    height: 176px;
+    width: 200px;
+    height: auto;
     opacity: 0;
     animation: animate-logo 2s linear forwards 2s;
     position: absolute;

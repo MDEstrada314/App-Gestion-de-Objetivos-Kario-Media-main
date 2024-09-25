@@ -17,6 +17,8 @@ import Panel from "./panel";
 
 export default function Navbar() {
   const imagen = localStorage.getItem("userImage");
+  const nombre = localStorage.getItem("nombre");
+  const rol = localStorage.getItem("rol");
   const history = useHistory();
   const [disableLinks, setDisableLinks] = useState(false);
   const [selectedItemId, setSelectedItemId] = useState(false);
@@ -64,7 +66,7 @@ export default function Navbar() {
 
 
     padreHoverElements.forEach((element) => {
-      element.classList.replace("padre-tabla","hover-eliminar");
+      element.classList.replace("padre-tabla", "hover-eliminar");
     });
 
   };
@@ -84,7 +86,7 @@ export default function Navbar() {
     if (showLogoutBox) {
       // Si el cuadro de logout está abierto, ciérralo
       setShowLogoutBox(false);
-    
+
     } else {
       // Si el cuadro de logout está cerrado, ábrelo
       setShowLogoutBox(true);
@@ -110,6 +112,24 @@ export default function Navbar() {
             <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
               <li className="nav-item">
                 <a
+                  className={`nav-link active grup-a ${disableLinks ? "disabled-link" : ""}`}
+                  aria-current="page"
+                  href="/home"
+                >
+                  <img className="logo-nav" src={logo} alt="" />
+                </a>
+              </li>
+              <li className="nav-item" onClick={() => window.location.reload()}>
+                <a
+                  className={`nav-link active grup-a d-flex align-items-center gap-2 ${disableLinks ? "disabled-link" : ""}`}
+                  aria-current="page"
+                  href="/home"
+                >
+                  <img className="nav-logo" src={refres} alt="" /> <h2 className="text-menu">Inicio</h2>
+                </a>
+              </li>
+              <li className="nav-item">
+                <a
                   className={`nav-link active grup-a d-flex align-items-center gap-2 ${disableLinks ? "disabled-link" : ""}`}
                   aria-current="page"
                   href="/home/formulario"
@@ -117,15 +137,7 @@ export default function Navbar() {
                   <img className="nav-logo" src={mas} alt="" /> Agregar
                 </a>
               </li>
-              <li className="nav-item" onClick={() => window.location.reload()}>
-                <a
-                  className={`nav-link active grup-a d-flex align-items-center gap-2 ${disableLinks ? "disabled-link" : ""}`}
-                  aria-current="page"
-                  href="#"
-                >
-                  <img className="nav-logo" src={refres} alt="" /> Refrescar
-                </a>
-              </li>
+
               <li className="nav-item">
                 <a
                   className={`nav-link active grup-a d-flex align-items-center gap-2 ${disableLinks ? "disabled-link" : ""}`}
@@ -136,15 +148,7 @@ export default function Navbar() {
                   <img className="nav-logo" src={eliminar} alt="" /> Eliminar
                 </a>
               </li>
-              <li className="nav-item">
-                <a
-                  className={`nav-link active grup-a ${disableLinks ? "disabled-link" : ""}`}
-                  aria-current="page"
-                  href="/home"
-                >
-                  <img className="logo-nav" src={logo} alt="" />
-                </a>
-              </li>
+
               <li className="nav-item">
                 <a
                   className={`nav-link active grup-a d-flex align-items-center gap-2 ${disableLinks ? "disabled-link" : ""}`}
@@ -170,9 +174,9 @@ export default function Navbar() {
 
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0 d-flex align-items-center">
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#">
+                {/* <a className="nav-link active" aria-current="page" href="#">
                   <img className="ajustes-nav" src={ajustes} alt="" />
-                </a>
+                </a> */}
               </li>
               <li className="nav-item">
                 <a className="nav-link active" aria-current="page" href="#">
@@ -181,7 +185,14 @@ export default function Navbar() {
               </li>
               <li className="nav-item">
                 <a className="nav-link active" aria-current="page" href="#" onClick={handleImageClick}>
-                  <img className="imagen-nav" src={`${imagen}`} alt="" />
+                
+                <div className="usuario">
+                  <div className="nombre-cuenta">
+                   <h2>{nombre}</h2> 
+                   <h6>{rol}</h6>
+                  </div>
+                 <img className="imagen-nav" src={`${imagen}`} alt="" />
+                </div>
                 </a>
               </li>
             </ul>

@@ -1,6 +1,6 @@
 .logo-nav {
-  width: 40px;
-  height: 40px;
+  width: 120px;
+  height: auto;
 }
 
 .nav-logo {
@@ -30,6 +30,43 @@
 hr {
   margin: 0;
 }
+.nav-link{
+  display: flex !important;
+  align-items: center !important;
+  
+  
+}
+.text-menu{
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0;
+
+ 
+}
+
+.usuario{
+  display: flex;
+  
+}
+
+.nombre-cuenta{
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  margin: 0 10px;
+}
+.nombre-cuenta h2{
+    font-size: 24px;
+    margin: 0;
+}
+
+.nombre-cuenta h6{
+  font-size: 8px;
+  margin: 0;
+  
+}
+
+
 
 @media (min-width: 1800px) {
   .grup-a {

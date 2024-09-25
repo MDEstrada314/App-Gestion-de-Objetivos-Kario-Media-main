@@ -5,5 +5,13 @@
 }
 
 .bg-login{
-  background: url('./assets/img/pexels-pixabay-159400.jpg');
-}
+  width: 100%;
+  height: 100vh;  
+  
+  background: 
+  linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0)), 
+  url('./assets/img/pexels-pixabay-159400.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+ }

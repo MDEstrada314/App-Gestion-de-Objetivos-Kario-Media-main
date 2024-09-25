@@ -13,7 +13,7 @@ const login = async (req, res, next) => {
       password,
       usuario.password
     );
-    if (!coincidePwd) throw boom.badRequest("Contraseña incorrecta");
+    if (!coincidePwd) throw boom.badRequest("Contraseña incorrecta"); 
 
     if (usuario.estado == false)
       throw boom.unauthorized("Este usuario ya no se encuentra activo");

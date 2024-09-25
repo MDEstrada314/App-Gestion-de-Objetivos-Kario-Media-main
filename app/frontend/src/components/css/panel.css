@@ -1,5 +1,88 @@
 /* Estilos generales */
 
+.padre-contenedor{
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Dos columnas iguales */
+  gap: 20px; /* Espacio entre las columnas */
+  background-color: rgb(233, 233, 232);
+  
+  
+ 
+
+}
+
+.columna {
+    display: grid;
+    grid-template-rows: 1fr 1fr; /* Dos filas iguales */
+    gap: 5px; /* Espacio entre las filas */ 
+    padding: 10px;
+}
+
+.fondo{
+  width: 100%;
+  height: auto;
+  background-image: url(/../../app/frontend/src/assets/img/fondo-2.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex; /* Flexbox para centrar contenido */
+  
+  align-items: end; /* Centrar verticalmente */
+  padding: 0;
+  margin: 0;
+
+  border-radius: 12px;
+  color: #222121;
+
+  
+
+}
+
+.title-fecha{
+  
+  width: 16rem;
+  height: 8rem;
+  margin: 1rem;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;  
+  background-color: #ffffff;
+
+  
+}
+
+.fecha{
+  display: flex;
+  align-items: center;
+  margin: 0px;
+  padding: 0;
+  
+
+  
+}
+
+.fecha h4 {
+  margin: 0;
+  font-weight: 100;
+  font-size: 14px;
+
+}
+
+.t-actividad{
+  margin:1rem 0 0 0.5rem;
+  font-weight: 100;
+}
+
+.t-titulo{
+  margin: 0 0 0 5px;
+}
+
+
+.icon-t{
+  font-size: 20px;
+}
+
+
 a {
   text-decoration: none;
 }
@@ -10,6 +93,14 @@ a {
   width: 95%;
   padding: 0 15px;
   margin: 0 auto;
+  
+  
+}
+
+.panel{
+  background-color: #ffffff;
+  border-radius: 12px;
+  margin: 5px;
 }
 
 .row-container {
@@ -19,7 +110,7 @@ a {
 .row {
   display: flex;
   justify-content: space-between;
-  border: 1px solid black;
+  
   border-radius: 20px;
   margin: 10px 0;
   padding: 5px;
@@ -50,13 +141,13 @@ a {
 }
 
 .hover:hover {
-  background-color: rgb(255, 146, 21);
+  background-color: rgb(234, 224, 32);
   border-radius: 25px;
 }
 
 .hover:hover div {
-  background-color: rgb(255, 146, 21);
-  border-radius: 25px;
+  background-color: rgb(0, 221, 255);
+  border-radius: 5px;
 }
 
 .tex-descrip {
@@ -65,7 +156,7 @@ a {
 
 .descripcion {
   font-weight: 400;
-  font-size: 18px;
+  font-size: 10px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -96,7 +187,7 @@ a {
 }
 
 .hover-eliminar div {
-  background-color: rgb(255, 121, 121);
+  background-color: rgb(234, 234, 234);
   border-radius: 25px;
 }
 
@@ -121,11 +212,11 @@ a {
   text-align: center;
   color: white;
   font-size: 18px;
-  background-color: #FF6F2C;
+  background-color: #f666fb;
   border-style: none;
-  border-radius: 35px;
-  width: 280px;
-  height: 100%;
+  border-radius: 12px;
+  width: 240px;
+  height: 80%;
 }
 
 #cancelar-borrar{
