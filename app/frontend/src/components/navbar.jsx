@@ -109,7 +109,7 @@ export default function Navbar() {
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
+            <ul className="navbar-nav mx-auto mb-1 mb-lg-0">
               <li className="nav-item">
                 <a
                   className={`nav-link active grup-a ${disableLinks ? "disabled-link" : ""}`}
@@ -134,11 +134,11 @@ export default function Navbar() {
                   aria-current="page"
                   href="/home/formulario"
                 >
-                  <img className="nav-logo" src={mas} alt="" /> Agregar
+                  <img className="nav-logo" src={mas} alt="" /> Actividad
                 </a>
               </li>
 
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <a
                   className={`nav-link active grup-a d-flex align-items-center gap-2 ${disableLinks ? "disabled-link" : ""}`}
                   aria-current="page"
@@ -147,7 +147,7 @@ export default function Navbar() {
                 >
                   <img className="nav-logo" src={eliminar} alt="" /> Eliminar
                 </a>
-              </li>
+              </li> */}
 
               <li className="nav-item">
                 <a
@@ -156,7 +156,7 @@ export default function Navbar() {
                   href="/reportes"
                   onClick={() => handleLinkClick(1)} // Puedes pasar el _id deseado aquí
                 >
-                  <img className="nav-logo" src={repor} alt="" /> Reportar
+                  <img className="nav-logo" src={repor} alt="" /> Calendario
                 </a>
               </li>
               <li className="nav-item">
@@ -167,7 +167,7 @@ export default function Navbar() {
                   target="_blank"
                   onClick={() => handleLinkClick(2)} // Puedes pasar el _id deseado aquí
                 >
-                  <img className="nav-logo" src={ayuda} alt="" /> Ayuda
+                  <img className="nav-logo" src={ayuda} alt="" /> Configuracion
                 </a>
               </li>
             </ul>

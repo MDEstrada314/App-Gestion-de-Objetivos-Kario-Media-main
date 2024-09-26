@@ -16,6 +16,7 @@ export default function Panel() {
   const history = useHistory();
   const token = localStorage.getItem("x-auth-token");
   const [data, setData] = useState([])
+  const [disableLinks, setDisableLinks] = useState(false);
 
   useEffect(() => {
     if (!token) return history.push("/");
@@ -89,6 +90,53 @@ export default function Panel() {
 
 
   }
+  const displayBorrar = () => {
+    const textHome = document.querySelector("#text-home");
+    const textDelete = document.querySelector("#text-delete");
+    const textInfo = document.querySelector("#text-info");
+    const textInfoDelete = document.querySelector("#text-info-delete");
+    const btnCrearMetas = document.querySelector("#crear-metas");
+    const btnCancel = document.querySelector("#cancelar-borrar");
+    const iconTrashElements = document.querySelectorAll('.icon-trash');
+    const cellBorrarElements = document.querySelector('.cell-borrar');
+    const padreHoverElements = document.querySelectorAll('.hover-rows');
+
+    if (textHome.classList.contains("ver")) {
+      textHome.classList.replace("ver", "no-ver");
+      textDelete.classList.replace("no-ver", "ver");
+    }
+
+    if (textInfo.classList.contains("ver")) {
+      textInfo.classList.replace("ver", "no-ver");
+      textInfoDelete.classList.replace("no-ver", "ver");
+    }
+
+    if (btnCrearMetas.classList.contains("ver")) {
+      btnCrearMetas.classList.replace("ver", "no-ver");
+      btnCancel.classList.replace("no-ver", "ver");
+    }
+
+    if (cellBorrarElements.classList.contains("no-ver")) {
+      cellBorrarElements.classList.replace("no-ver", "ver");
+    }
+
+    iconTrashElements.forEach((element) => {
+      element.classList.replace("no-ver", "ver");
+    });
+
+
+    padreHoverElements.forEach((element) => {
+      element.classList.replace("padre-tabla", "hover-eliminar");
+    });
+
+  };
+
+  const handleEliminarClick = () => {
+    if (history.location.pathname === "/home") {
+      displayBorrar();
+      setDisableLinks(true);
+    }
+  };
 
 
 
@@ -128,6 +176,12 @@ export default function Panel() {
     });
   };
 
+   function formatDate(dateString) {
+    const options = { year: "numeric", month: "short", day: "numeric" };
+    const date = new Date(dateString);
+    return date.toLocaleDateString("es-ES", options);  // Formato más reducido y amigable
+  }
+
   const currentDate = new Date().toLocaleDateString();
 
   return (
@@ -144,8 +198,8 @@ export default function Panel() {
             </div>
           </div>
         </div>
-        <div>
-          hola
+        <div className="calendario">
+          {/* ... */}
         </div>
 
       </div>
@@ -174,7 +228,7 @@ export default function Panel() {
               <div className="cell">Dificultad</div>
               <div className="cell">Fecha de Inicio</div>
               <div className="cell">Fecha de Termino</div>
-              <div className="cell">Metodología</div>
+              {/* <div className="cell">Metodología</div> */}
               <div className="cell">Cumplimiento</div>
               {/* <div className="cell">Área</div> */}
               <div className="cell no-ver cell-borrar">Borrar</div>
@@ -192,7 +246,7 @@ export default function Panel() {
                     <div className="cell">{item.dificultad}</div>
                     <div className="cell">{formatDate(item.fechaInicio)}</div>
                     <div className="cell">{formatDate(item.fechaFinal)}</div>
-                    <div className="cell">{item.metodologia}</div>
+                    {/* <div className="cell">{item.metodologia}</div> */}
                     <div className="cell">
                       <h4
                         style={{
@@ -218,13 +272,16 @@ export default function Panel() {
             <p>Cargando datos...</p>
           )}
         </div>
-        <div className='btn-container'>
+        <div className='btn-container botones'>
           <Link to="/home/formulario">
             <button id='crear-metas' className="ver"> Añadir Elementos </button>
           </Link>
           <Link to="/home">
             <button id='cancelar-borrar' className="no-ver" onClick={displayNormal}> Cancelar </button>
           </Link>
+          <div>
+          <button id='borrar' className="ver" onClick={handleEliminarClick}> Borrar</button>
+          </div>
         </div>
       </div>
     </div>

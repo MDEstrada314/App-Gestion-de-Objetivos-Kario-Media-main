@@ -2,19 +2,17 @@
 
 .padre-contenedor{
   display: grid;
-  grid-template-columns: 1fr 1fr; /* Dos columnas iguales */
-  gap: 20px; /* Espacio entre las columnas */
+  grid-template-columns: 1fr 1fr; /* Dos columnas iguales */ 
   background-color: rgb(233, 233, 232);
   
-  
- 
+
 
 }
 
 .columna {
     display: grid;
     grid-template-rows: 1fr 1fr; /* Dos filas iguales */
-    gap: 5px; /* Espacio entre las filas */ 
+    gap: 15px; /* Espacio entre las filas */ 
     padding: 10px;
 }
 
@@ -82,6 +80,18 @@
   font-size: 20px;
 }
 
+
+.calendario{
+
+  width: 100%;
+  height: auto;
+  background-image: url(/../../app/frontend/src/assets/img/Group\ 2.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 0;
+  margin: 0;
+
+}
 
 a {
   text-decoration: none;
@@ -206,13 +216,29 @@ a {
   text-align: center;
   margin-top: 20px;
   height: 56px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
 }
+
+
 
 #crear-metas{
   text-align: center;
   color: white;
   font-size: 18px;
-  background-color: #f666fb;
+  background-color: #1f67ec;
+  border-style: none;
+  border-radius: 12px;
+  width: 240px;
+  height: 80%;
+}
+
+#borrar{
+  text-align: center;
+  color: white;
+  font-size: 18px;
+  background-color: #cc1937;
   border-style: none;
   border-radius: 12px;
   width: 240px;

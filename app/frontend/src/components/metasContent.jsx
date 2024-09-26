@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import { FaTrashAlt } from "react-icons/fa";
 import formatDate from "../helpers/dateFormating";
 import AñadirTareas from "./añadirTareas";
 import "./css/añadirTareas.css";
+import Panel2 from "./panel-2";
 
 export default function MetasContent({
   apiData,
@@ -29,14 +29,21 @@ export default function MetasContent({
 
   return (
     <div className={`metas-container`}>
-      <div className="metas-main-content">
+      {/* Contenedor de Panel2 con ancho limitado */}
+      <div className="panel-2" >
+        <h1>proyectos</h1>
+        <Panel2 />
+      </div>
+
+      {/* Contenido principal */}
+      <div className="metas-main-content ">
         <div className="meta-title">
           <h2>{apiData.nombre}</h2>
           <h6>Fecha de inicio: {formatDate(apiData.fechaInicio)}</h6>
           <h6>Fecha final: {formatDate(apiData.fechaFinal)}</h6>
         </div>
-        <div className={`meta-tasks ${isDeleting ? "eliminando-layout" : ""}`}>
-          <table className="tasks-table">
+        <div className={`fondo-table meta-tasks ${isDeleting ? "eliminando-layout" : ""}`}>
+          <table className="tasks-table ">
             <thead>
               <tr className="metas-table-row">
                 <th>ID</th>
@@ -91,6 +98,8 @@ export default function MetasContent({
           </table>
         </div>
       </div>
+
+      {/* Aside con botones y descripción */}
       <div className="aside">
         <div className="aside-description">
           <h2>Description</h2>
@@ -107,6 +116,8 @@ export default function MetasContent({
           Añadir Tareas
         </button>
       </div>
+
+      {/* Formulario para añadir tareas */}
       <div className="aside-form" style={modalShows}>
         <AñadirTareas addNewTask={addNewTask} closeModal={toggleModal} />
       </div>
